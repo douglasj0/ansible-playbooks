@@ -1,0 +1,15 @@
+---
+- name: Install programs
+  apt: pkg={{ item }} state=installed
+  with_items:
+  - keepassx
+  - dia
+  - dia-common
+  - dia-shapes
+  - dia-rib-network
+  - ditaa
+  - vlc
+  - mplayer
+  - filezilla
+  - xchat
+  - pithos

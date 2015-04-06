@@ -1,0 +1,63 @@
+---
+- name: Install utilities
+  apt: pkg={{ item }} state=installed
+  with_items:
+  - zsh
+  - gpart
+  - gawk
+  - gawk-doc
+  - ckermit
+  - acpi
+  - htop
+  - atop
+  - strace
+  - pinfo
+  - netcat
+  - curl
+  - ncdu
+  - fping
+  - tree
+  - telnet
+  - sysstat
+  - unrar
+  - p7zip-full
+  - p7zip-rar
+  - pv
+  - sharutils
+  - lynx
+  - links
+  - sc
+  - irssi
+  - graphviz
+  - graphviz-doc
+  - nmap
+  - ytree
+  - mc
+  - sipcalc
+  - gnuplot
+  - gnuplot-doc
+  - puppet-lint
+  - remmina
+  - remmina-common
+  - remmina-plugin-rdp
+  - remmina-plugin-vnc
+  - remmina-plugin-gnome
+  - remmina-plugin-xdmcp
+  - guake
+  - dvtm
+  - terminator
+  - geany
+  - ldapvi
+  - whois
+  - tmux
+  - lftp
+  - ack-grep
+  - traceroute
+  - vpnc
+  - ldap-utils
+  - mpg123
+
+- name: Disable CERT requests in openldap/ldap.conf
+  lineinfile: dest=/etc/ldap/ldap.conf regexp="^#TLS_REQCERT "
+    line="TLS_REQCERT never"
+  sudo_user: root

@@ -1,0 +1,11 @@
+---
+
+- name: Install text editors
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - vim
+    - vim-doc
+    - vim-scripts
+    - zile
+    - mg
+    - texlive

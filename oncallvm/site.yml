@@ -1,0 +1,18 @@
+---
+
+- hosts: oncallvm_hosts
+  gather_facts: true
+  sudo: true
+  sudo_user: root
+  roles:
+    - update
+    - sysctl
+    - disable_usedns
+    - ebook_readers
+    - programs
+    - utilities
+    - editors
+    - source_control
+    - network_manager
+    - hipchat
+    - chrome

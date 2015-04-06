@@ -1,0 +1,17 @@
+---
+
+- name: Install source control
+  apt: pkg={{ item }} state=installed
+  with_items:
+  - make
+  - automake
+  - gcc
+  - subversion
+  - git
+  - git-doc
+  - git-man
+  - git-svn
+  - qgit
+  - tig
+  - build-essential
+  - libnet-ldap-perl

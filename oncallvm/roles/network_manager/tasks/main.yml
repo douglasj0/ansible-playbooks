@@ -1,0 +1,12 @@
+---
+
+- name: Install Network Manager and vpnc
+  apt: pkg={{ item }} state=installed
+  with_items:
+    - network-manager
+    - network-manager-gnome
+    - network-manager-pptp
+    - network-manager-pptp-gnome
+    - vpnc
+    - network-manager-vpnc
+    - network-manager-vpnc-gnome

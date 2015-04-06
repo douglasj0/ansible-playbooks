@@ -1,0 +1,3 @@
+---
+- sysctl: name=vm.swappiness value=10 state=present
+- sysctl: name=vm.vfs_cache_pressure value=50 state=present

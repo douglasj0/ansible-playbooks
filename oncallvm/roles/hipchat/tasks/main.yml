@@ -1,0 +1,20 @@
+---
+  - name: Does the hipchat apt file exist?
+    command: test -f {{apt_file}}
+    register: hipchat_apt_exists
+    ignore_errors: True
+
+  - name: Add Atlassian Hipchat key
+    shell: wget -q -O - https://www.hipchat.com/keys/hipchat-linux.key | apt-key add -
+    when: hipchat_apt_exists.rc == 1
+
+  - name: Add Atlassian Hipchat repo
+    copy: content="deb http://downloads.hipchat.com/linux/apt stable main" dest={{apt_file}} owner=root group=root mode=644
+    when: hipchat_apt_exists.rc == 1
+
+  - name: Update apt cache
+    apt: update_cache=yes
+    when: hipchat_apt_exists.rc == 1
+
+  - name: Install Atlassian Hipchat
+    apt: pkg=hipchat state=installed

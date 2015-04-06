@@ -1,0 +1,6 @@
+---
+- name: Disable DNS lookups in sshd_config
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^#UseDNS yes"
+    line="UseDNS no"
+    validate='sshd -T -f %s'
+  sudo_user: root

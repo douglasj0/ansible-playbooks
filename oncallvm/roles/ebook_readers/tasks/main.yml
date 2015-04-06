@@ -1,0 +1,12 @@
+---
+
+- name: install ebook readers
+  apt: pkg={{ item }} state=installed
+  with_items:
+  - fbreader
+  - psutils
+  - zathura
+  - zathura-cb   # comic book archive support for zathura
+  - zathura-dev  # development files for zathura plugins
+  - zathura-djvu # DjVu support for zathura
+  - zathura-ps   # PostScript support for zathura
